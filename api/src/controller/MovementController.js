@@ -11,4 +11,9 @@ module.exports = {
 
         return response.json(result);
     },
+
+    async list (request, response){
+        console.log('list');
+        return response.json('ok');
+    }
 };
