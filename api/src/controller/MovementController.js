@@ -1,17 +1,14 @@
-const connection = require('../database/connection');
+const service = require('../service/movementService');
 
 module.exports = {
     async  create (request, response)  {
-        const { title, description, value } = request.body;
-        const ong_id = request.headers.authorization;
+        console.log('create');
+        console.log(request.body);
+        
+        const { name, type, date, category, description, value } = request.body;
 
-        const [id] = await connection('INCIDENTS').insert({
-            title,
-            description,
-            value,
-            ong_id,
-        });
+        const result = await service.create({ name, type, date, category, description, value });
 
-        return response.json({ id });
+        return response.json(result);
     },
 };
