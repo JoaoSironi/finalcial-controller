@@ -1,4 +1,3 @@
-
 require('dotenv').config();
 
 module.exports = {
@@ -6,11 +5,11 @@ module.exports = {
   development: {
     client: 'mysql2',
     connection: {
-      host : process.env.DB_HOST,
-      port : process.env.DB_PORT,
-      user : process.env.DB_USER,
-      password : process.env.DB_USER_PASSWORD,
-      database : process.env.DB_NAME
+      host : process.env.DB_HOST || 'localhost',
+      port : process.env.DB_PORT || 3306,
+      user : process.env.DB_USER || 'user',
+      password : process.env.DB_USER_PASSWORD || 'password',
+      database : process.env.DB_NAME || 'db'
     },
     migrations: {
       directory: './src/database/migrations'
